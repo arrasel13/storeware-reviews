@@ -1,10 +1,14 @@
-import { useState, useEffect } from 'react'
-import './App.css'
+import { useState, useEffect } from "react";
+import "./App.css";
 
 function MinimalApp() {
-  const [selectedApp, setSelectedApp] = useState('');
+  const [selectedApp, setSelectedApp] = useState("");
   const [apps, setApps] = useState([]);
-  const [stats, setStats] = useState({ thisMonth: 0, last30Days: 0, averageRating: 0 });
+  const [stats, setStats] = useState({
+    thisMonth: 0,
+    last30Days: 0,
+    averageRating: 0,
+  });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -12,17 +16,17 @@ function MinimalApp() {
   useEffect(() => {
     const fetchApps = async () => {
       try {
-        const response = await fetch('/backend/api/available-apps.php');
+        const response = await fetch("/backend/api/available-apps.php");
         const data = await response.json();
         if (data.success) {
           setApps(data.apps);
         }
       } catch (err) {
-        console.error('Error fetching apps:', err);
-        setError('Failed to load apps');
+        console.error("Error fetching apps:", err);
+        setError("Failed to load apps");
       }
     };
-    
+
     fetchApps();
   }, []);
 
@@ -33,29 +37,31 @@ function MinimalApp() {
     const fetchStats = async () => {
       try {
         setLoading(true);
-        
+
         const [thisMonthRes, last30DaysRes, avgRatingRes] = await Promise.all([
           fetch(`/backend/api/this-month-reviews.php?app_name=${selectedApp}`),
-          fetch(`/backend/api/last-30-days-reviews.php?app_name=${selectedApp}`),
-          fetch(`/backend/api/average-rating.php?app_name=${selectedApp}`)
+          fetch(
+            `/backend/api/last-30-days-reviews.php?app_name=${selectedApp}`
+          ),
+          fetch(`/backend/api/average-rating.php?app_name=${selectedApp}`),
         ]);
 
         const [thisMonth, last30Days, avgRating] = await Promise.all([
           thisMonthRes.json(),
           last30DaysRes.json(),
-          avgRatingRes.json()
+          avgRatingRes.json(),
         ]);
 
         setStats({
           thisMonth: thisMonth.count || 0,
           last30Days: last30Days.count || 0,
-          averageRating: avgRating.average_rating || 0
+          averageRating: avgRating.average_rating || 0,
         });
-        
+
         setError(null);
       } catch (err) {
-        console.error('Error fetching stats:', err);
-        setError('Failed to load statistics');
+        console.error("Error fetching stats:", err);
+        setError("Failed to load statistics");
       } finally {
         setLoading(false);
       }
@@ -67,8 +73,11 @@ function MinimalApp() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Shopify App Review Analytics</h1>
-        <p>Comprehensive analytics dashboard for tracking and analyzing Shopify app reviews</p>
+        <h1>Shopify App Review Analytics1</h1>
+        <p>
+          Comprehensive analytics dashboard for tracking and analyzing Shopify
+          app reviews
+        </p>
       </header>
 
       <main className="app-main">
@@ -84,7 +93,9 @@ function MinimalApp() {
             >
               <option value="">Choose an app to analyze</option>
               {apps.map((app) => (
-                <option key={app} value={app}>{app}</option>
+                <option key={app} value={app}>
+                  {app}
+                </option>
               ))}
             </select>
           </div>
@@ -106,13 +117,13 @@ function MinimalApp() {
                     <div className="stat-value">{stats.thisMonth}</div>
                     <div className="stat-label">Total Reviews</div>
                   </div>
-                  
+
                   <div className="stat-card">
                     <h3>Last 30 Days</h3>
                     <div className="stat-value">{stats.last30Days}</div>
                     <div className="stat-label">Total Reviews</div>
                   </div>
-                  
+
                   <div className="stat-card">
                     <h3>Average Rating</h3>
                     <div className="stat-value">{stats.averageRating}</div>
@@ -131,12 +142,15 @@ function MinimalApp() {
         ) : (
           <div className="no-app-selected">
             <h2>Choose an app to analyze</h2>
-            <p>Select an app from the dropdown above to view its analytics and rating distribution.</p>
+            <p>
+              Select an app from the dropdown above to view its analytics and
+              rating distribution.
+            </p>
           </div>
         )}
       </main>
     </div>
-  )
+  );
 }
 
-export default MinimalApp
+export default MinimalApp;
