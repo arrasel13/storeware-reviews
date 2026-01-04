@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Database Configuration
  */
 
-class Database {
+class Database
+{
     private $host;
     private $db_name;
     private $username;
@@ -11,50 +13,71 @@ class Database {
     private $port;
     private $conn;
 
-    public function __construct() {
+    public function __construct()
+    {
         // Load environment variables from multiple sources
-        $env = file_exists(__DIR__.'/.env') ? parse_ini_file(__DIR__.'/.env') : [];
+        $env = file_exists(__DIR__ . '/.env') ? parse_ini_file(__DIR__ . '/.env') : [];
 
         // UNIVERSAL PLATFORM SUPPORT - Works with ANY hosting platform
         // Priority: System ENV > .env file > defaults
         // Supports: Railway (MYSQL_*), xCloud, cPanel, Heroku, DigitalOcean, AWS, etc.
 
         $this->host = $this->getEnvValue([
-            'MYSQL_HOST', 'DB_HOST', 'DATABASE_HOST', 'CLEARDB_DATABASE_URL_HOST'
-        ], $env, 'localhost');
+            'MYSQL_HOST',
+            'DB_HOST',
+            'DATABASE_HOST',
+            'CLEARDB_DATABASE_URL_HOST'
+        ], $env, 'http://127.0.0.1:4173/');
 
         $this->db_name = $this->getEnvValue([
-            'MYSQL_DATABASE', 'DB_NAME', 'DATABASE_NAME', 'DB_DATABASE'
+            'MYSQL_DATABASE',
+            'DB_NAME',
+            'DATABASE_NAME',
+            'DB_DATABASE'
         ], $env, 'shopify_reviews');
 
         $this->username = $this->getEnvValue([
-            'MYSQL_USER', 'DB_USER', 'DATABASE_USER', 'DB_USERNAME'
+            'MYSQL_USER',
+            'DB_USER',
+            'DATABASE_USER',
+            'DB_USERNAME'
         ], $env, 'root');
 
         $this->password = $this->getEnvValue([
-            'MYSQL_PASSWORD', 'DB_PASS', 'DATABASE_PASSWORD', 'DB_PASSWORD'
+            'MYSQL_PASSWORD',
+            'DB_PASS',
+            'DATABASE_PASSWORD',
+            'DB_PASSWORD'
         ], $env, '');
 
         $this->port = $this->getEnvValue([
-            'MYSQL_PORT', 'DB_PORT', 'DATABASE_PORT'
+            'MYSQL_PORT',
+            'DB_PORT',
+            'DATABASE_PORT'
         ], $env, '3306');
 
         // Enhanced debug logging for any live server
-        $isLiveServer = !in_array($this->host, ['localhost', '127.0.0.1']) ||
-                       getenv('RAILWAY_ENVIRONMENT') ||
-                       getenv('HEROKU_APP_NAME') ||
-                       $_SERVER['HTTP_HOST'] !== 'localhost:5173';
+        $isLiveServer = !in_array($this->host, ['localhost', 'http://127.0.0.1:4173']) ||
+            getenv('RAILWAY_ENVIRONMENT') ||
+            getenv('HEROKU_APP_NAME') ||
+            $_SERVER['HTTP_HOST'] !== 'http://127.0.0.1:4173';
+
+        // $isLiveServer = !in_array($this->host, ['localhost', '127.0.0.1']) ||
+        //     getenv('RAILWAY_ENVIRONMENT') ||
+        //     getenv('HEROKU_APP_NAME') ||
+        //     $_SERVER['HTTP_HOST'] !== 'localhost:5173';
 
         if ($isLiveServer) {
             error_log("Live Server DB Config - Platform: " . $this->detectPlatform() .
-                     ", Host: {$this->host}, DB: {$this->db_name}, User: {$this->username}, Port: {$this->port}");
+                ", Host: {$this->host}, DB: {$this->db_name}, User: {$this->username}, Port: {$this->port}");
         }
     }
 
     /**
      * Get environment value from multiple possible variable names
      */
-    private function getEnvValue($varNames, $envFile, $default) {
+    private function getEnvValue($varNames, $envFile, $default)
+    {
         foreach ($varNames as $varName) {
             // Check $_ENV superglobal
             if (isset($_ENV[$varName]) && $_ENV[$varName] !== '') {
@@ -79,7 +102,8 @@ class Database {
     /**
      * Detect hosting platform for better debugging
      */
-    private function detectPlatform() {
+    private function detectPlatform()
+    {
         if (getenv('RAILWAY_ENVIRONMENT')) return 'Railway';
         if (getenv('HEROKU_APP_NAME')) return 'Heroku';
         if (getenv('VERCEL')) return 'Vercel';
@@ -96,7 +120,8 @@ class Database {
         return 'Unknown Platform';
     }
 
-    public function getConnection() {
+    public function getConnection()
+    {
         $this->conn = null;
 
         try {
@@ -123,16 +148,15 @@ class Database {
             if ($testStmt) {
                 error_log("Database connection successful to {$this->host}/{$this->db_name}");
             }
-
-        } catch(PDOException $exception) {
+        } catch (PDOException $exception) {
             $errorMsg = "Database connection failed to {$this->host}:{$this->port}/{$this->db_name} as {$this->username} - " . $exception->getMessage();
             error_log($errorMsg);
 
             // Log environment variables for debugging (without password)
             error_log("Environment check - MYSQL_HOST: " . (getenv('MYSQL_HOST') ? 'SET' : 'NOT_SET') .
-                     ", MYSQL_DATABASE: " . (getenv('MYSQL_DATABASE') ? 'SET' : 'NOT_SET') .
-                     ", MYSQL_USER: " . (getenv('MYSQL_USER') ? 'SET' : 'NOT_SET') .
-                     ", MYSQL_PASSWORD: " . (getenv('MYSQL_PASSWORD') ? 'SET' : 'NOT_SET'));
+                ", MYSQL_DATABASE: " . (getenv('MYSQL_DATABASE') ? 'SET' : 'NOT_SET') .
+                ", MYSQL_USER: " . (getenv('MYSQL_USER') ? 'SET' : 'NOT_SET') .
+                ", MYSQL_PASSWORD: " . (getenv('MYSQL_PASSWORD') ? 'SET' : 'NOT_SET'));
 
             throw new Exception($errorMsg);
         }
@@ -145,8 +169,8 @@ class Database {
  * Global function for backward compatibility
  * Returns a PDO connection using the centralized Database class
  */
-function getDbConnection() {
+function getDbConnection()
+{
     $database = new Database();
     return $database->getConnection();
 }
-?>

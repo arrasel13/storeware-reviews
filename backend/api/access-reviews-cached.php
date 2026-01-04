@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Cached Access Reviews API with Smart 12-Hour Caching
  * Provides fast tab switching with accurate review counts
@@ -18,7 +19,8 @@ header('Content-Type: application/json');
 /**
  * Get client IP address (handles proxies and load balancers)
  */
-function getClientIP() {
+function getClientIP()
+{
     $headers = [
         'HTTP_CF_CONNECTING_IP',     // Cloudflare
         'HTTP_CLIENT_IP',            // Proxy
@@ -72,7 +74,6 @@ try {
             echo json_encode(['success' => false, 'error' => 'Method not allowed']);
             break;
     }
-
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode([
@@ -81,7 +82,8 @@ try {
     ]);
 }
 
-function handleGetCachedReviews($conn) {
+function handleGetCachedReviews($conn)
+{
     $startTime = microtime(true);
 
     // Get parameters
@@ -160,7 +162,7 @@ function handleGetCachedReviews($conn) {
     $totalPages = ceil($dbTotalCount / $limit);
     $hasNextPage = $page < $totalPages;
     $hasPrevPage = $page > 1;
-    
+
     // Generate page numbers for pagination UI
     $pageNumbers = [];
     $startPage = max(1, $page - 3);
@@ -234,7 +236,8 @@ function handleGetCachedReviews($conn) {
     ]);
 }
 
-function updateReviewsInDatabase($conn, $reviews, $appName) {
+function updateReviewsInDatabase($conn, $reviews, $appName)
+{
     // Use incremental scraper to only add new reviews
     // This preserves existing assignments and data
     $incrementalScraper = new IncrementalShopifyReviewScraper();
@@ -290,9 +293,10 @@ function updateReviewsInDatabase($conn, $reviews, $appName) {
     }
 }
 
-function handleUpdateAssignment($conn) {
+function handleUpdateAssignment($conn)
+{
     $input = json_decode(file_get_contents('php://input'), true);
-    
+
     if (!isset($input['review_id']) || !isset($input['earned_by'])) {
         http_response_code(400);
         echo json_encode(['success' => false, 'error' => 'Missing required fields']);
@@ -313,4 +317,3 @@ function handleUpdateAssignment($conn) {
         echo json_encode(['success' => false, 'error' => 'Database error: ' . $e->getMessage()]);
     }
 }
-?>

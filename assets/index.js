@@ -13776,99 +13776,201 @@ const Ed = q.createContext(),
     return c.jsxs("div", {
       className: "access-container",
       children: [
+        // c.jsxs("div", {
+        //   className: "access-header",
+        //   children: [
+        //     c.jsx("h1", { children: "Access Reviews" }),
+        //     O &&
+        //       c.jsxs("div", {
+        //         className: "tab-statistics",
+        //         children: [
+        //           c.jsxs("div", {
+        //             className: "stat-item",
+        //             children: [
+        //               c.jsx("span", {
+        //                 className: "stat-label",
+        //                 children: "Total Reviews",
+        //               }),
+        //               c.jsx("span", {
+        //                 className: "stat-value",
+        //                 children: O.total_reviews,
+        //               }),
+        //             ],
+        //           }),
+        //           c.jsxs("div", {
+        //             className: "stat-item",
+        //             children: [
+        //               c.jsx("span", {
+        //                 className: "stat-label",
+        //                 children: "Assigned",
+        //               }),
+        //               c.jsx("span", {
+        //                 className: "stat-value",
+        //                 children: O.assigned_reviews,
+        //               }),
+        //             ],
+        //           }),
+        //           c.jsxs("div", {
+        //             className: "stat-item",
+        //             children: [
+        //               c.jsx("span", {
+        //                 className: "stat-label",
+        //                 children: "Unassigned",
+        //               }),
+        //               c.jsx("span", {
+        //                 className: "stat-value",
+        //                 children: O.unassigned_reviews,
+        //               }),
+        //             ],
+        //           }),
+        //           c.jsxs("div", {
+        //             className: "stat-item",
+        //             children: [
+        //               c.jsx("span", {
+        //                 className: "stat-label",
+        //                 children: "Avg Rating",
+        //               }),
+        //               c.jsxs("span", {
+        //                 className: "stat-value",
+        //                 children: [O.avg_rating, "★"],
+        //               }),
+        //             ],
+        //           }),
+        //           O.cache_status &&
+        //             c.jsxs("div", {
+        //               className: "stat-item",
+        //               children: [
+        //                 c.jsx("span", {
+        //                   className: "stat-label",
+        //                   children: "Data",
+        //                 }),
+        //                 c.jsx("span", {
+        //                   className: `stat-value cache-${O.cache_status}`,
+        //                   children:
+        //                     O.cache_status === "hit" ? "⚡ Cached" : "🔄 Fresh",
+        //                 }),
+        //               ],
+        //             }),
+        //         ],
+        //       }),
+        //   ],
+        // }),
+        // c.jsx("div", {
+        //   className: "tab-navigation",
+        //   children: m.map((E) =>
+        //     c.jsx(
+        //       "button",
+        //       {
+        //         className: `tab-button ${R === E.name ? "active" : ""}`,
+        //         onClick: () => L(E.name),
+        //         children: E.name,
+        //       },
+        //       E.name
+        //     )
+        //   ),
+        // }),
         c.jsxs("div", {
-          className: "access-header",
+          className: "access-header-wrapper",
           children: [
-            c.jsx("h1", { children: "Access Reviews" }),
-            O &&
-              c.jsxs("div", {
-                className: "tab-statistics",
-                children: [
-                  c.jsxs("div", {
-                    className: "stat-item",
-                    children: [
-                      c.jsx("span", {
-                        className: "stat-label",
-                        children: "Total Reviews",
-                      }),
-                      c.jsx("span", {
-                        className: "stat-value",
-                        children: O.total_reviews,
-                      }),
-                    ],
-                  }),
-                  c.jsxs("div", {
-                    className: "stat-item",
-                    children: [
-                      c.jsx("span", {
-                        className: "stat-label",
-                        children: "Assigned",
-                      }),
-                      c.jsx("span", {
-                        className: "stat-value",
-                        children: O.assigned_reviews,
-                      }),
-                    ],
-                  }),
-                  c.jsxs("div", {
-                    className: "stat-item",
-                    children: [
-                      c.jsx("span", {
-                        className: "stat-label",
-                        children: "Unassigned",
-                      }),
-                      c.jsx("span", {
-                        className: "stat-value",
-                        children: O.unassigned_reviews,
-                      }),
-                    ],
-                  }),
-                  c.jsxs("div", {
-                    className: "stat-item",
-                    children: [
-                      c.jsx("span", {
-                        className: "stat-label",
-                        children: "Avg Rating",
-                      }),
-                      c.jsxs("span", {
-                        className: "stat-value",
-                        children: [O.avg_rating, "★"],
-                      }),
-                    ],
-                  }),
-                  O.cache_status &&
-                    c.jsxs("div", {
-                      className: "stat-item",
-                      children: [
-                        c.jsx("span", {
-                          className: "stat-label",
-                          children: "Data",
-                        }),
-                        c.jsx("span", {
-                          className: `stat-value cache-${O.cache_status}`,
-                          children:
-                            O.cache_status === "hit" ? "⚡ Cached" : "🔄 Fresh",
-                        }),
-                      ],
-                    }),
-                ],
-              }),
+            c.jsxs("div", {
+              className: "access-header",
+              children: [
+                c.jsx("h1", { children: "Access Reviews" }),
+                // O &&
+                //   c.jsxs("div", {
+                //     className: "tab-statistics",
+                //     children: [
+                //       c.jsxs("div", {
+                //         className: "stat-item",
+                //         children: [
+                //           c.jsx("span", {
+                //             className: "stat-label",
+                //             children: "Total Reviews",
+                //           }),
+                //           c.jsx("span", {
+                //             className: "stat-value",
+                //             children: O.total_reviews,
+                //           }),
+                //         ],
+                //       }),
+                //       c.jsxs("div", {
+                //         className: "stat-item",
+                //         children: [
+                //           c.jsx("span", {
+                //             className: "stat-label",
+                //             children: "Assigned",
+                //           }),
+                //           c.jsx("span", {
+                //             className: "stat-value",
+                //             children: O.assigned_reviews,
+                //           }),
+                //         ],
+                //       }),
+                //       c.jsxs("div", {
+                //         className: "stat-item",
+                //         children: [
+                //           c.jsx("span", {
+                //             className: "stat-label",
+                //             children: "Unassigned",
+                //           }),
+                //           c.jsx("span", {
+                //             className: "stat-value",
+                //             children: O.unassigned_reviews,
+                //           }),
+                //         ],
+                //       }),
+                //       c.jsxs("div", {
+                //         className: "stat-item",
+                //         children: [
+                //           c.jsx("span", {
+                //             className: "stat-label",
+                //             children: "Avg Rating",
+                //           }),
+                //           c.jsxs("span", {
+                //             className: "stat-value",
+                //             children: [O.avg_rating, "★"],
+                //           }),
+                //         ],
+                //       }),
+                //       O.cache_status &&
+                //         c.jsxs("div", {
+                //           className: "stat-item",
+                //           children: [
+                //             c.jsx("span", {
+                //               className: "stat-label",
+                //               children: "Data",
+                //             }),
+                //             c.jsx("span", {
+                //               className: `stat-value cache-${O.cache_status}`,
+                //               children:
+                //                 O.cache_status === "hit"
+                //                   ? "⚡ Cached"
+                //                   : "🔄 Fresh",
+                //             }),
+                //           ],
+                //         }),
+                //     ],
+                //   }),
+              ],
+            }),
+
+            c.jsx("div", {
+              className: "tab-navigation",
+              children: m.map((E) =>
+                c.jsx(
+                  "button",
+                  {
+                    className: `tab-button ${R === E.name ? "active" : ""}`,
+                    onClick: () => L(E.name),
+                    children: E.name,
+                  },
+                  E.name
+                )
+              ),
+            }),
           ],
         }),
-        c.jsx("div", {
-          className: "tab-navigation",
-          children: m.map((E) =>
-            c.jsx(
-              "button",
-              {
-                className: `tab-button ${R === E.name ? "active" : ""}`,
-                onClick: () => L(E.name),
-                children: E.name,
-              },
-              E.name
-            )
-          ),
-        }),
+
         c.jsx("div", {
           className: "tab-content",
           children: B
@@ -13894,18 +13996,41 @@ const Ed = q.createContext(),
                   c.jsxs("div", {
                     className: "reviews-header",
                     children: [
-                      c.jsxs("h2", { children: [R, " Reviews Details"] }),
-                      c.jsxs("p", {
+                      c.jsxs("div", {
+                        className: "review-details",
                         children: [
-                          "Page ",
-                          Z.current_page,
-                          " of ",
-                          Z.total_pages,
-                          " | Total: ",
-                          Z.total_items,
-                          " reviews",
+                          c.jsxs(
+                            "h2",
+                            { children: [R, " Reviews Details"] },
+                            c.jsxs("p", {
+                              children: [
+                                "Page ",
+                                Z.current_page,
+                                " of ",
+                                Z.total_pages,
+                                " | Total: ",
+                                Z.total_items,
+                                " reviews",
+                              ],
+                            })
+                          ),
                         ],
                       }),
+                      // c.jsxs(
+                      //   "h2",
+                      //   { children: [R, " Reviews Details"] },
+                      //   c.jsxs("p", {
+                      //     children: [
+                      //       "Page ",
+                      //       Z.current_page,
+                      //       " of ",
+                      //       Z.total_pages,
+                      //       " | Total: ",
+                      //       Z.total_items,
+                      //       " reviews",
+                      //     ],
+                      //   })
+                      // ),
                     ],
                   }),
                   lt.length === 0
@@ -14269,322 +14394,14 @@ const Ed = q.createContext(),
       };
     return c.jsxs("div", {
       className: "review-count-page",
-      style: {
-        background: "white",
-        maxWidth: "1400px",
-        width: "100%",
-        margin: "0 auto",
-        padding: "20px",
-        borderRadius: "16px",
-      },
       children: [
-        c.jsx("style", {
-          children: `
-          .time-filter-tabs {
-            display: flex;
-            background: white;
-            border-radius: 12px;
-            padding: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            flex-wrap: wrap;
-            gap: 4px;
-          }
-
-          .time-filter-tab {
-            flex: 1;
-            min-width: 120px;
-            padding: 12px 0;
-            border: none;
-            border-radius: 8px;
-            background: transparent;
-            color: #666;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-align: center;
-          }
-
-          .time-filter-tab.active {
-            background: linear-gradient(135deg, #10B981 0%, #0d9488 100%);
-            color: white;
-            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
-          }
-
-          .time-filter-tab:hover:not(.active) {
-            background: rgba(16, 185, 129, 0.1);
-            color: #10B981;
-          }
-
-          @media (max-width: 768px) {
-            .time-filter-tabs {
-              width: 100%;
-              padding: 4px;
-            }
-
-            .time-filter-tab {
-              min-width: 100px;
-              padding: 10px 0;
-              font-size: 0.85rem;
-            }
-          }
-
-          @media (max-width: 480px) {
-            .time-filter-tab {
-              min-width: 80px;
-              padding: 8px 0;
-              font-size: 0.75rem;
-            }
-          }
-        `,
-        }),
-        c.jsx("style", {
-          children: `
-          @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-          }
-
-          @keyframes fadeInUp {
-            from {
-              opacity: 0;
-              transform: translateY(30px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-
-          .stats-grid > div {
-            animation: fadeInUp 0.6s ease forwards;
-          }
-
-          .stats-grid > div:nth-child(1) { animation-delay: 0.1s; }
-          .stats-grid > div:nth-child(2) { animation-delay: 0.2s; }
-          .stats-grid > div:nth-child(3) { animation-delay: 0.3s; }
-          .stats-grid > div:nth-child(4) { animation-delay: 0.4s; }
-          .stats-grid > div:nth-child(5) { animation-delay: 0.5s; }
-          .stats-grid > div:nth-child(6) { animation-delay: 0.6s; }
-
-          @media (max-width: 768px) {
-            .review-count-page {
-              padding: 12px !important;
-            }
-
-            .agent-stats-section h3 {
-              font-size: 1.1rem !important;
-            }
-
-            .stats-grid {
-              grid-template-columns: repeat(2, 1fr) !important;
-              gap: 12px !important;
-            }
-
-            .stat-card {
-              padding: 12px !important;
-            }
-
-            .stat-value {
-              font-size: 1.8rem !important;
-            }
-
-            .stat-label {
-              font-size: 0.85rem !important;
-            }
-
-            .country-stats-section {
-              padding: 15px !important;
-            }
-
-            .country-stats-section h3 {
-              font-size: 1.1rem !important;
-            }
-
-            .country-list {
-              gap: 10px !important;
-            }
-
-            .country-item {
-              padding: 10px !important;
-              font-size: 0.9rem !important;
-            }
-
-            .country-name {
-              font-size: 0.9rem !important;
-            }
-
-            .country-count {
-              font-size: 1.2rem !important;
-            }
-          }
-
-          @media (max-width: 480px) {
-            .review-count-page {
-              padding: 8px !important;
-            }
-
-            .agent-stats-section {
-              padding: 12px !important;
-            }
-
-            .agent-stats-section h3 {
-              font-size: 1rem !important;
-            }
-
-            .stats-grid {
-              grid-template-columns: 1fr !important;
-              gap: 10px !important;
-            }
-
-            .stat-card {
-              padding: 10px !important;
-            }
-
-            .stat-value {
-              font-size: 1.5rem !important;
-            }
-
-            .stat-label {
-              font-size: 0.8rem !important;
-            }
-
-            .country-stats-section {
-              padding: 12px !important;
-            }
-
-            .country-stats-section h3 {
-              font-size: 1rem !important;
-            }
-
-            .country-item {
-              padding: 8px !important;
-              font-size: 0.85rem !important;
-            }
-
-            .country-name {
-              font-size: 0.85rem !important;
-            }
-
-            .country-count {
-              font-size: 1.1rem !important;
-            }
-          }
-        `,
-        }),
         c.jsx("div", {
-          className: "container",
+          className: "review-count-container",
           children: c.jsxs("div", {
             className: "two-section-layout",
-            style: {
-              display: "grid",
-              gridTemplateColumns: "300px 1fr",
-              gap: "30px",
-            },
             children: [
-              c.jsx("style", {
-                children: `
-              @media (max-width: 1024px) {
-                .two-section-layout {
-                  grid-template-columns: 250px 1fr !important;
-                  gap: 20px !important;
-                }
-              }
-
-              @media (max-width: 768px) {
-                .two-section-layout {
-                  grid-template-columns: 1fr !important;
-                  gap: 20px !important;
-                }
-
-                .app-selection-section {
-                  order: 2 !important;
-                }
-
-                .agent-stats-section {
-                  order: 1 !important;
-                }
-
-                .app-list {
-                  display: grid !important;
-                  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
-                  gap: 10px !important;
-                }
-
-                .custom-selection-button {
-                  padding: 8px 12px !important;
-                  font-size: 0.9rem !important;
-                }
-
-                .time-filter-tabs {
-                  width: 100% !important;
-                }
-
-                .time-filter-tab {
-                  min-width: 100px !important;
-                  padding: 10px 0 !important;
-                  font-size: 0.85rem !important;
-                }
-              }
-
-              @media (max-width: 480px) {
-                .two-section-layout {
-                  gap: 15px !important;
-                }
-
-                .app-selection-section {
-                  padding: 15px !important;
-                }
-
-                .agent-stats-section {
-                  padding: 15px !important;
-                }
-
-                .app-list {
-                  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)) !important;
-                  gap: 8px !important;
-                }
-
-                .custom-selection-button {
-                  padding: 6px 10px !important;
-                  font-size: 0.85rem !important;
-                }
-
-                .time-filter-tab {
-                  min-width: 80px !important;
-                  padding: 8px 0 !important;
-                  font-size: 0.75rem !important;
-                }
-
-                .stats-grid {
-                  grid-template-columns: 1fr !important;
-                  gap: 12px !important;
-                }
-
-                .stat-card {
-                  padding: 12px !important;
-                }
-
-                .stat-value {
-                  font-size: 1.8rem !important;
-                }
-
-                .stat-label {
-                  font-size: 0.85rem !important;
-                }
-              }
-            `,
-              }),
               c.jsxs("div", {
                 className: "app-selection-section",
-                style: {
-                  background: "white",
-                  borderRadius: "8px",
-                  padding: "20px",
-                  boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-                  height: "fit-content",
-                  border: "1px solid #e5e7eb",
-                },
                 children: [
                   c.jsxs("div", {
                     style: {
@@ -14751,13 +14568,13 @@ const Ed = q.createContext(),
               }),
               c.jsxs("div", {
                 className: "agent-stats-section",
-                style: {
-                  backgroundColor: "white",
-                  borderRadius: "8px",
-                  padding: "20px",
-                  boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-                  border: "1px solid #e5e7eb",
-                },
+                // style: {
+                //   backgroundColor: "white",
+                //   borderRadius: "8px",
+                //   padding: "20px",
+                //   boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+                //   border: "1px solid #e5e7eb",
+                // },
                 children: [
                   c.jsxs("h3", {
                     style: {
@@ -15725,223 +15542,111 @@ const Ed = q.createContext(),
       console.log("Agent selected:", V), G(V), ot(V);
     };
     return c.jsxs("div", {
-      style: {
-        maxWidth: "1400px",
-        width: "100%",
-        background: "#f8f9fa",
-        padding: "20px",
-        margin: "0 auto",
-        borderRadius: "16px",
-        boxSizing: "border-box",
-      },
+      className: "agent-reviews-container",
+      // style: {
+      //   maxWidth: "1400px",
+      //   width: "100%",
+      //   background: "#f8f9fa",
+      //   padding: "20px",
+      //   margin: "0 auto",
+      //   borderRadius: "16px",
+      //   boxSizing: "border-box",
+      // },
       children: [
-        c.jsx("style", {
-          children: `
-          @media (max-width: 768px) {
-            .agent-reviews-container {
-              padding: 12px !important;
-            }
-
-            .agent-reviews-header {
-              flex-direction: column !important;
-              gap: 15px !important;
-              text-align: center !important;
-            }
-
-            .agent-reviews-title h1 {
-              font-size: 24px !important;
-            }
-
-            .agent-reviews-title p {
-              font-size: 13px !important;
-            }
-
-            .agent-selector-container {
-              flex-direction: column !important;
-              width: 100% !important;
-              gap: 15px !important;
-              justify-content: center !important;
-            }
-
-            .agent-selector-label {
-              width: 100% !important;
-              justify-content: center !important;
-            }
-
-            .agent-selector-dropdown {
-              width: 100% !important;
-              min-width: auto !important;
-            }
-
-            .time-filter-tabs {
-              width: 100% !important;
-              flex-wrap: wrap !important;
-            }
-
-            .time-filter-button {
-              flex: 1 !important;
-              min-width: 120px !important;
-              padding: 10px 12px !important;
-              font-size: 13px !important;
-            }
-
-            .stats-grid {
-              grid-template-columns: 1fr !important;
-            }
-
-            .stat-card {
-              padding: 16px !important;
-            }
-
-            .stat-value {
-              font-size: 24px !important;
-            }
-
-            .stat-content h3 {
-              font-size: 12px !important;
-            }
-
-            .reviews-by-app-grid {
-              grid-template-columns: 1fr !important;
-            }
-
-            .app-review-card {
-              padding: 12px !important;
-            }
-
-            .app-review-card .app-name {
-              font-size: 14px !important;
-            }
-
-            .app-review-count {
-              font-size: 1.3rem !important;
-            }
-          }
-
-          @media (max-width: 480px) {
-            .agent-reviews-container {
-              padding: 8px !important;
-            }
-
-            .agent-reviews-header {
-              padding: 20px 12px !important;
-            }
-
-            .agent-reviews-title h1 {
-              font-size: 20px !important;
-            }
-
-            .agent-reviews-title p {
-              font-size: 12px !important;
-            }
-
-            .agent-selector-label {
-              font-size: 14px !important;
-            }
-
-            .agent-selector-dropdown {
-              padding: 10px 12px !important;
-              font-size: 13px !important;
-            }
-
-            .time-filter-button {
-              padding: 8px 10px !important;
-              font-size: 12px !important;
-            }
-
-            .stat-card {
-              padding: 12px !important;
-              gap: 10px !important;
-            }
-
-            .stat-icon {
-              width: 45px !important;
-              height: 45px !important;
-              font-size: 20px !important;
-            }
-
-            .stat-value {
-              font-size: 20px !important;
-            }
-
-            .stat-content h3 {
-              font-size: 11px !important;
-            }
-
-            .stat-label {
-              font-size: 10px !important;
-            }
-
-            .app-review-card {
-              padding: 10px !important;
-            }
-
-            .app-name {
-              font-size: 13px !important;
-            }
-
-            .app-review-count {
-              font-size: 1.2rem !important;
-            }
-          }
-        `,
-        }),
-        c.jsx("div", {
-          className: "agent-reviews-header",
-          style: {
-            background: "linear-gradient(135deg, #10B981 0%, #0d9488 100%)",
-            color: "white",
-            padding: "40px 20px",
-            textAlign: "center",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-            borderRadius: "12px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "20px",
-            flexWrap: "wrap",
-          },
-          children: c.jsxs("div", {
-            className: "agent-reviews-title",
-            style: { flex: 1, minWidth: "200px" },
-            children: [
-              c.jsx("h1", {
-                style: { margin: "0 0 10px 0", fontSize: "2.5rem" },
-                children: "👥 Agent Reviews Dashboard",
+        c.jsxs("div", {
+          className: "agent-reviews-header-container",
+          children: [
+            c.jsx("div", {
+              className: "agent-reviews-header",
+              // style: {
+              //   background: "linear-gradient(135deg, #10B981 0%, #0d9488 100%)",
+              //   color: "white",
+              //   padding: "40px 20px",
+              //   textAlign: "center",
+              //   boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+              //   borderRadius: "12px",
+              //   display: "flex",
+              //   justifyContent: "center",
+              //   alignItems: "center",
+              //   gap: "20px",
+              //   flexWrap: "wrap",
+              // },
+              children: c.jsxs("div", {
+                className: "agent-reviews-title",
+                // style: { flex: 1, minWidth: "200px" },
+                children: [
+                  c.jsx("h1", {
+                    // style: { margin: "0 0 10px 0", fontSize: "2.5rem" },
+                    children: "👥 Agent Reviews Dashboard",
+                  }),
+                  c.jsx("p", {
+                    // style: { margin: "0", fontSize: "1.1rem", opacity: 0.95 },
+                    children:
+                      "Track individual agent performance across all apps",
+                  }),
+                ],
               }),
-              c.jsx("p", {
-                style: { margin: "0", fontSize: "1.1rem", opacity: 0.95 },
-                children: "Track individual agent performance across all apps",
-              }),
-            ],
-          }),
+            }),
+            c.jsxs("div", {
+              className: "time-filter-tabs",
+              style: {
+                display: "inline-flex",
+                background: "#e5e7eb",
+                borderRadius: "10px",
+                padding: "5px",
+                gap: "5px",
+              },
+              children: [
+                c.jsx("button", {
+                  className: "time-filter-button",
+                  onClick: () => {
+                    console.log("Filter changed to: last_30_days"),
+                      $("last_30_days");
+                  },
+                  style: {
+                    padding: "10px 20px",
+                    background:
+                      _ === "last_30_days" ? "#10B981" : "transparent",
+                    color: _ === "last_30_days" ? "white" : "#666",
+                    border: "none",
+                    borderRadius: "8px",
+                    cursor: "pointer",
+                    fontWeight: "bold",
+                    transition: "all 0.3s ease",
+                    fontSize: "0.95rem",
+                    whiteSpace: "nowrap",
+                  },
+                  children: "📊 Last 30 Days",
+                }),
+                c.jsx("button", {
+                  className: "time-filter-button",
+                  onClick: () => {
+                    console.log("Filter changed to: all_time"), $("all_time");
+                  },
+                  style: {
+                    padding: "10px 20px",
+                    background: _ === "all_time" ? "#10B981" : "transparent",
+                    color: _ === "all_time" ? "white" : "#666",
+                    border: "none",
+                    borderRadius: "8px",
+                    cursor: "pointer",
+                    fontWeight: "bold",
+                    transition: "all 0.3s ease",
+                    fontSize: "0.95rem",
+                    whiteSpace: "nowrap",
+                  },
+                  children: "🏆 All Time",
+                }),
+              ],
+            }),
+          ],
         }),
         c.jsxs("div", {
-          style: { padding: "40px 0px", maxWidth: "1200px", margin: "0 auto" },
+          className: "agent-reviews-content",
+          // style: { padding: "40px 0px", maxWidth: "1200px", margin: "0 auto" },
           children: [
-            B &&
-              c.jsx("div", {
-                style: {
-                  background: "#fee",
-                  padding: "16px",
-                  margin: "0 0 30px 0",
-                  borderRadius: "8px",
-                  fontSize: "14px",
-                  color: "#c33",
-                  border: "1px solid #fcc",
-                },
-                children: c.jsx("p", { style: { margin: "0" }, children: B }),
-              }),
             c.jsxs("div", {
               className: "agent-selector-container",
-              style: {
-                marginBottom: "30px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "30px",
-                flexWrap: "wrap",
-              },
               children: [
                 c.jsxs("div", {
                   className: "agent-selector-label",
@@ -15995,60 +15700,77 @@ const Ed = q.createContext(),
                     }),
                   ],
                 }),
-                c.jsxs("div", {
-                  className: "time-filter-tabs",
-                  style: {
-                    display: "inline-flex",
-                    background: "#e5e7eb",
-                    borderRadius: "10px",
-                    padding: "5px",
-                    gap: "5px",
-                  },
-                  children: [
-                    c.jsx("button", {
-                      className: "time-filter-button",
-                      onClick: () => {
-                        console.log("Filter changed to: last_30_days"),
-                          $("last_30_days");
-                      },
-                      style: {
-                        padding: "10px 20px",
-                        background:
-                          _ === "last_30_days" ? "#10B981" : "transparent",
-                        color: _ === "last_30_days" ? "white" : "#666",
-                        border: "none",
-                        borderRadius: "8px",
-                        cursor: "pointer",
-                        fontWeight: "bold",
-                        transition: "all 0.3s ease",
-                        fontSize: "0.95rem",
-                        whiteSpace: "nowrap",
-                      },
-                      children: "📊 Last 30 Days",
+                B &&
+                  c.jsx("div", {
+                    style: {
+                      background: "#fee",
+                      padding: "16px",
+                      width: "100%",
+                      // margin: "0 0 30px 0",
+                      borderRadius: "8px",
+                      fontSize: "14px",
+                      color: "#c33",
+                      border: "1px solid #fcc",
+                    },
+                    children: c.jsx("p", {
+                      style: { margin: "0" },
+                      children: B,
                     }),
-                    c.jsx("button", {
-                      className: "time-filter-button",
-                      onClick: () => {
-                        console.log("Filter changed to: all_time"),
-                          $("all_time");
-                      },
-                      style: {
-                        padding: "10px 20px",
-                        background:
-                          _ === "all_time" ? "#10B981" : "transparent",
-                        color: _ === "all_time" ? "white" : "#666",
-                        border: "none",
-                        borderRadius: "8px",
-                        cursor: "pointer",
-                        fontWeight: "bold",
-                        transition: "all 0.3s ease",
-                        fontSize: "0.95rem",
-                        whiteSpace: "nowrap",
-                      },
-                      children: "🏆 All Time",
-                    }),
-                  ],
-                }),
+                  }),
+                // c.jsxs("div", {
+                //   className: "time-filter-tabs",
+                //   style: {
+                //     display: "inline-flex",
+                //     background: "#e5e7eb",
+                //     borderRadius: "10px",
+                //     padding: "5px",
+                //     gap: "5px",
+                //   },
+                //   children: [
+                //     c.jsx("button", {
+                //       className: "time-filter-button",
+                //       onClick: () => {
+                //         console.log("Filter changed to: last_30_days"),
+                //           $("last_30_days");
+                //       },
+                //       style: {
+                //         padding: "10px 20px",
+                //         background:
+                //           _ === "last_30_days" ? "#10B981" : "transparent",
+                //         color: _ === "last_30_days" ? "white" : "#666",
+                //         border: "none",
+                //         borderRadius: "8px",
+                //         cursor: "pointer",
+                //         fontWeight: "bold",
+                //         transition: "all 0.3s ease",
+                //         fontSize: "0.95rem",
+                //         whiteSpace: "nowrap",
+                //       },
+                //       children: "📊 Last 30 Days",
+                //     }),
+                //     c.jsx("button", {
+                //       className: "time-filter-button",
+                //       onClick: () => {
+                //         console.log("Filter changed to: all_time"),
+                //           $("all_time");
+                //       },
+                //       style: {
+                //         padding: "10px 20px",
+                //         background:
+                //           _ === "all_time" ? "#10B981" : "transparent",
+                //         color: _ === "all_time" ? "white" : "#666",
+                //         border: "none",
+                //         borderRadius: "8px",
+                //         cursor: "pointer",
+                //         fontWeight: "bold",
+                //         transition: "all 0.3s ease",
+                //         fontSize: "0.95rem",
+                //         whiteSpace: "nowrap",
+                //       },
+                //       children: "🏆 All Time",
+                //     }),
+                //   ],
+                // }),
               ],
             }),
             c.jsx("div", {
@@ -16341,10 +16063,10 @@ function rh() {
             className: "app-header",
             children: [
               c.jsx("h1", { children: "Shopify App Review Analytics" }),
-              c.jsx("p", {
-                children:
-                  "Comprehensive analytics dashboard for tracking and analyzing Shopify app reviews",
-              }),
+              // c.jsx("p", {
+              //   children:
+              //     "Comprehensive analytics dashboard for tracking and analyzing Shopify app reviews",
+              // }),
               c.jsxs("div", {
                 className: "nav-tabs",
                 style: { marginTop: "20px" },
