@@ -47,7 +47,8 @@ function getClientIP()
     }
 
     // Fallback to localhost for development
-    return $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1';
+    // return $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1';
+    return $_SERVER['REMOTE_ADDR'] ?? 'http://localhost:4173';
 }
 // Add strong cache-busting headers
 header('Cache-Control: no-cache, no-store, must-revalidate, max-age=0');

@@ -13586,7 +13586,7 @@ const Ed = q.createContext(),
           }
           (Mt.current = o), (Ot.current = o), D(!0), ot(null);
           try {
-            console.log("✅ Fetching reviews from API:", o);
+            // console.log("✅ Fetching reviews from API:", o);
             const M = await fetch(
               `/backend/api/access-reviews-cached.php?app=${encodeURIComponent(
                 E
@@ -14577,14 +14577,6 @@ const Ed = q.createContext(),
                 // },
                 children: [
                   c.jsxs("h3", {
-                    style: {
-                      fontSize: "1.3rem",
-                      fontWeight: "bold",
-                      color: "#333",
-                      marginBottom: "20px",
-                      borderBottom: "2px solid #28a745",
-                      paddingBottom: "10px",
-                    },
                     children: [
                       "Support Agent Statistics",
                       G &&
@@ -14677,15 +14669,7 @@ const Ed = q.createContext(),
                     }),
                   V &&
                     c.jsxs("div", {
-                      style: {
-                        background:
-                          "linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%)",
-                        color: "white",
-                        padding: "24px",
-                        borderRadius: "16px",
-                        textAlign: "center",
-                        boxShadow: "0 8px 32px rgba(255,107,107,0.3)",
-                      },
+                      className: "agent-stats-section-error",
                       children: [
                         c.jsx("div", {
                           style: { fontSize: "3rem", marginBottom: "15px" },
@@ -15589,51 +15573,26 @@ const Ed = q.createContext(),
             }),
             c.jsxs("div", {
               className: "time-filter-tabs",
-              style: {
-                display: "inline-flex",
-                background: "#e5e7eb",
-                borderRadius: "10px",
-                padding: "5px",
-                gap: "5px",
-              },
               children: [
                 c.jsx("button", {
-                  className: "time-filter-button",
+                  type: "button",
+                  className: `time-filter-button ${
+                    _ === "last_30_days" ? "active" : ""
+                  }`,
                   onClick: () => {
-                    console.log("Filter changed to: last_30_days"),
-                      $("last_30_days");
-                  },
-                  style: {
-                    padding: "10px 20px",
-                    background:
-                      _ === "last_30_days" ? "#10B981" : "transparent",
-                    color: _ === "last_30_days" ? "white" : "#666",
-                    border: "none",
-                    borderRadius: "8px",
-                    cursor: "pointer",
-                    fontWeight: "bold",
-                    transition: "all 0.3s ease",
-                    fontSize: "0.95rem",
-                    whiteSpace: "nowrap",
+                    // console.log("Filter changed to: last_30_days"),
+                    $("last_30_days");
                   },
                   children: "📊 Last 30 Days",
                 }),
                 c.jsx("button", {
-                  className: "time-filter-button",
+                  type: "button",
+                  className: `time-filter-button ${
+                    _ === "all_time" ? "active" : ""
+                  }`,
                   onClick: () => {
-                    console.log("Filter changed to: all_time"), $("all_time");
-                  },
-                  style: {
-                    padding: "10px 20px",
-                    background: _ === "all_time" ? "#10B981" : "transparent",
-                    color: _ === "all_time" ? "white" : "#666",
-                    border: "none",
-                    borderRadius: "8px",
-                    cursor: "pointer",
-                    fontWeight: "bold",
-                    transition: "all 0.3s ease",
-                    fontSize: "0.95rem",
-                    whiteSpace: "nowrap",
+                    // console.log("Filter changed to: all_time"),
+                    $("all_time");
                   },
                   children: "🏆 All Time",
                 }),
@@ -15774,13 +15733,14 @@ const Ed = q.createContext(),
               ],
             }),
             c.jsx("div", {
-              style: {
-                background: "white",
-                borderRadius: "15px",
-                padding: "40px",
-                boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-                minHeight: "400px",
-              },
+              className: "agent-selector-content",
+              // style: {
+              //   background: "white",
+              //   borderRadius: "15px",
+              //   padding: "40px",
+              //   boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+              //   minHeight: "400px",
+              // },
               children: O
                 ? c.jsxs("div", {
                     style: { textAlign: "center", padding: "60px 20px" },
@@ -16043,9 +16003,9 @@ const Ed = q.createContext(),
 function rh() {
   const [_, $] = q.useState("analytics");
   return (
-    console.log("App rendering with currentView:", _),
-    console.log("ReviewCredit component:", os),
-    console.log("ReviewCredit component name:", os.name),
+    // console.log("App rendering with currentView:", _),
+    // console.log("ReviewCredit component:", os),
+    // console.log("ReviewCredit component name:", os.name),
     q.useEffect(() => {
       const Y = {
         analytics: "Analytics Dashboard - Shopify App Review Analytics",

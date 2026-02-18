@@ -27,7 +27,7 @@ class Database
             'DB_HOST',
             'DATABASE_HOST',
             'CLEARDB_DATABASE_URL_HOST'
-        ], $env, 'http://127.0.0.1:4173/');
+        ], $env, '127.0.0.1');
 
         $this->db_name = $this->getEnvValue([
             'MYSQL_DATABASE',
@@ -57,10 +57,10 @@ class Database
         ], $env, '3306');
 
         // Enhanced debug logging for any live server
-        $isLiveServer = !in_array($this->host, ['localhost', 'http://127.0.0.1:4173']) ||
+        $isLiveServer = !in_array($this->host, ['localhost', '127.0.0.1']) ||
             getenv('RAILWAY_ENVIRONMENT') ||
             getenv('HEROKU_APP_NAME') ||
-            $_SERVER['HTTP_HOST'] !== 'http://127.0.0.1:4173';
+            (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'localhost') === false);
 
         // $isLiveServer = !in_array($this->host, ['localhost', '127.0.0.1']) ||
         //     getenv('RAILWAY_ENVIRONMENT') ||
